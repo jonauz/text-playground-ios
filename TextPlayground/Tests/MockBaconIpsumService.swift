@@ -11,9 +11,8 @@ import Combine
 struct MockBaconIpsumService: BaconIpsumServiceType {
 
     func getBaconIpsum() -> AnyPublisher<String, Error> {
-        return Just("Lorem Ipsum")
+        return Just("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
 }
-

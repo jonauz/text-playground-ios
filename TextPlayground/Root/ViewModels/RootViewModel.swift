@@ -14,6 +14,8 @@ class RootViewModel: ObservableObject {
 
     private var cancellables = Set<AnyCancellable>()
 
+    @Published var text: String = ""
+
     init(service: BaconIpsumServiceType) {
         self.service = service
     }
@@ -29,6 +31,7 @@ class RootViewModel: ObservableObject {
                 }
             } receiveValue: { result in
                 print("result: \(result)")
+                self.text = result
 
             }
             .store(in: &cancellables)
