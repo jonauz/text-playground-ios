@@ -11,7 +11,7 @@ import SwiftUI
 struct TextPlaygroundApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView(viewModel: RootViewModel())
+            RootView(viewModel: RootViewModel(service: BaconIpsumService()))
         }
     }
 }

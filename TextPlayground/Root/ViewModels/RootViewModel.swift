@@ -6,7 +6,31 @@
 //
 
 import Foundation
+import Combine
 
-class RootViewModel {
-    
+class RootViewModel: ObservableObject {
+
+    let service: BaconIpsumServiceType
+
+    private var cancellables = Set<AnyCancellable>()
+
+    init(service: BaconIpsumServiceType) {
+        self.service = service
+    }
+
+    func getRandomText() {
+        service.getBaconIpsum()
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("successfully fetched data")
+                case .failure(let error):
+                    print("failure - \(error)")
+                }
+            } receiveValue: { result in
+                print("result: \(result)")
+
+            }
+            .store(in: &cancellables)
+    }
 }

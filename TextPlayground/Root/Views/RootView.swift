@@ -9,16 +9,19 @@ import SwiftUI
 
 struct RootView: View {
 
-    var viewModel: RootViewModel
+    @ObservedObject var viewModel: RootViewModel
 
     var body: some View {
         Text("Text Playground")
             .padding()
+            .onAppear(perform: {
+                viewModel.getRandomText()
+            })
     }
 }
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(viewModel: RootViewModel())
+        RootView(viewModel: RootViewModel(service: MockBaconIpsumService()))
     }
 }
