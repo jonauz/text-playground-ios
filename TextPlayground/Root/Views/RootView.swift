@@ -46,7 +46,7 @@ struct RootView: View {
     }
 
     private var editorFooterView: some View {
-        Text("\(viewModel.wordCount) Word\(viewModel.wordCountIsPlural ? "s" : "")")
+        Text("\(viewModel.wordCount) Word\(viewModel.wordCountLabelIsPlural ? "s" : "")")
             .frame(maxWidth: .infinity, alignment: .trailing)
     }
 

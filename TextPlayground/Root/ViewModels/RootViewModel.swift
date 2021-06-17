@@ -18,8 +18,8 @@ class RootViewModel: ObservableObject {
 
     @Published var wordCount: Int = 0
 
-    var wordCountIsPlural: Bool {
-        wordCount > 1
+    var wordCountLabelIsPlural: Bool {
+        wordCount != 1
     }
 
     init(service: BaconIpsumServiceType) {
