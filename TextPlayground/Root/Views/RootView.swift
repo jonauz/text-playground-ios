@@ -13,54 +13,49 @@ struct RootView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 5) {
-                Text("Load random text and try edit|✍️.. Have fun!")
-                    .font(.headline)
-
-                HStack {
-                    TextEditor(text: $viewModel.text)
-                        .disableAutocorrection(true)
-                        .overlay(RoundedRectangle(cornerRadius: 6)
-                                    .stroke(Color.gray, lineWidth: 1))
+            ZStack {
+                Form {
+                    Section(header: editorHeaderView,
+                            footer: editorFooterView) {
+                        TextEditor(text: $viewModel.text)
+                            .frame(minHeight: 240)
+                            .disableAutocorrection(true)
+                    }
+                    .padding(.top, 10)
                 }
-                .padding(.horizontal, 10)
 
-                HStack {
-                    Spacer()
-                    Text("Word Count")
-                        .padding(.trailing, 10)
+                KeyboardDismissView {
+                    self.viewModel.countWords()
                 }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 20)
             }
-            .frame(
-                minWidth: 0,
-                maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity,
-                alignment: .topLeading
-            )
-            .padding(.top, 15)
-            .padding(.bottom, 30)
             .navigationTitle("Text Playground")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar(content: {
-                ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                    Button(action: {
-                        viewModel.getRandomText()
-                    }, label: {
-                        Image(systemName: "arrow.triangle.2.circlepath")
-                    })
-                }
-            })
+            .toolbar {
+                toolbarActionButton
+            }
             .onAppear(perform: {
                 viewModel.getRandomText()
             })
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .onTapGesture {
-            hideKeyboard()
-        }
+    }
+
+    private var editorHeaderView: some View {
+        Text("Load random text and try edit|✍️.. Have fun!")
+            .frame(maxWidth: .infinity, alignment: .center)
+    }
+
+    private var editorFooterView: some View {
+        Text("\(viewModel.wordCount) Word\(viewModel.wordCountIsPlural ? "s" : "")")
+            .frame(maxWidth: .infinity, alignment: .trailing)
+    }
+
+    private var toolbarActionButton: some View {
+        Button(action: {
+            viewModel.getRandomText()
+        }, label: {
+            Image(systemName: "arrow.triangle.2.circlepath")
+        })
     }
 }
 
@@ -69,11 +64,3 @@ struct RootView_Previews: PreviewProvider {
         RootView(viewModel: RootViewModel(service: MockBaconIpsumService()))
     }
 }
-
-#if canImport(UIKit)
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-#endif

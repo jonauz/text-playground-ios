@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8F2BE09E267A5CDD007F1C13 /* DataServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2BE09D267A5CDD007F1C13 /* DataServiceable.swift */; };
 		8F2BE0A1267A669B007F1C13 /* MockBaconIpsumService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2BE0A0267A669B007F1C13 /* MockBaconIpsumService.swift */; };
+		8F2BE0A5267B9C5A007F1C13 /* KeyboardDismissViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2BE0A4267B9C5A007F1C13 /* KeyboardDismissViewModel.swift */; };
+		8F2BE0A8267B9CE9007F1C13 /* KeyboardDismissView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2BE0A7267B9CE9007F1C13 /* KeyboardDismissView.swift */; };
+		8F2BE0AD267BA220007F1C13 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2BE0AC267BA220007F1C13 /* Extensions.swift */; };
 		8F39E0EC267956EE0031DF0A /* TextPlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39E0EB267956EE0031DF0A /* TextPlaygroundApp.swift */; };
 		8F39E0EE267956EE0031DF0A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39E0ED267956EE0031DF0A /* RootView.swift */; };
 		8F39E0F0267956F00031DF0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F39E0EF267956F00031DF0A /* Assets.xcassets */; };
@@ -40,6 +43,9 @@
 /* Begin PBXFileReference section */
 		8F2BE09D267A5CDD007F1C13 /* DataServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceable.swift; sourceTree = "<group>"; };
 		8F2BE0A0267A669B007F1C13 /* MockBaconIpsumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBaconIpsumService.swift; sourceTree = "<group>"; };
+		8F2BE0A4267B9C5A007F1C13 /* KeyboardDismissViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissViewModel.swift; sourceTree = "<group>"; };
+		8F2BE0A7267B9CE9007F1C13 /* KeyboardDismissView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissView.swift; sourceTree = "<group>"; };
+		8F2BE0AC267BA220007F1C13 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8F39E0E8267956EE0031DF0A /* TextPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F39E0EB267956EE0031DF0A /* TextPlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPlaygroundApp.swift; sourceTree = "<group>"; };
 		8F39E0ED267956EE0031DF0A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -90,6 +96,40 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		8F2BE0A3267B9C44007F1C13 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8F2BE0AB267BA20B007F1C13 /* Extensions */,
+				8F2BE0A9267B9F76007F1C13 /* KeyboardDismissView */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8F2BE0A9267B9F76007F1C13 /* KeyboardDismissView */ = {
+			isa = PBXGroup;
+			children = (
+				8F2BE0A7267B9CE9007F1C13 /* KeyboardDismissView.swift */,
+				8F2BE0AA267BA07F007F1C13 /* ViewModels */,
+			);
+			path = KeyboardDismissView;
+			sourceTree = "<group>";
+		};
+		8F2BE0AA267BA07F007F1C13 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8F2BE0A4267B9C5A007F1C13 /* KeyboardDismissViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8F2BE0AB267BA20B007F1C13 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8F2BE0AC267BA220007F1C13 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8F39E0DF267956EE0031DF0A = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +156,7 @@
 				8F39E0EB267956EE0031DF0A /* TextPlaygroundApp.swift */,
 				8F39E1162679572A0031DF0A /* Root */,
 				8F39E11B267959970031DF0A /* Services */,
+				8F2BE0A3267B9C44007F1C13 /* Utilities */,
 				8F2BE09F267A6687007F1C13 /* Tests */,
 				8F39E0EF267956F00031DF0A /* Assets.xcassets */,
 				8F39E0F4267956F00031DF0A /* Info.plist */,
@@ -319,8 +360,11 @@
 				8F39E11F2679625E0031DF0A /* BaconIpsumService.swift in Sources */,
 				8F2BE0A1267A669B007F1C13 /* MockBaconIpsumService.swift in Sources */,
 				8F2BE09E267A5CDD007F1C13 /* DataServiceable.swift in Sources */,
+				8F2BE0AD267BA220007F1C13 /* Extensions.swift in Sources */,
 				8F39E11D267959BE0031DF0A /* BaconIpsumServiceEndpoint.swift in Sources */,
 				8F39E0EC267956EE0031DF0A /* TextPlaygroundApp.swift in Sources */,
+				8F2BE0A5267B9C5A007F1C13 /* KeyboardDismissViewModel.swift in Sources */,
+				8F2BE0A8267B9CE9007F1C13 /* KeyboardDismissView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -462,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -16,6 +16,12 @@ class RootViewModel: ObservableObject {
 
     @Published var text: String = ""
 
+    @Published var wordCount: Int = 0
+
+    var wordCountIsPlural: Bool {
+        wordCount > 1
+    }
+
     init(service: BaconIpsumServiceType) {
         self.service = service
     }
@@ -32,8 +38,17 @@ class RootViewModel: ObservableObject {
             } receiveValue: { result in
                 print("result: \(result)")
                 self.text = result
-
+                self.countWords()
             }
             .store(in: &cancellables)
+    }
+
+    func countWords() {
+        var count = 0
+        let range = text.startIndex..<text.endIndex
+        text.enumerateSubstrings(in: range, options: [.byWords, .substringNotRequired, .localized]) { _, _, _, _ in
+            count += 1
+        }
+        wordCount = count
     }
 }
